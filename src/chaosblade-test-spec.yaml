@@ -2,9 +2,9 @@ kind: plugin
 version: v1
 items:
 - target: test
-  shortDesc: c++ experiment
-  longDesc: c++ experiment for testing program delay, variable changed and method return.
-  example: cplus delay --delayDuration 5 --breakLine tcp_server.cpp:39 --fileLocateAndName /home/admin/socketServer/main --forkMode child --processName main --delayDuration 5 --initParams 9527 --libLoad /home/lib
+  shortDesc: test experiment
+  longDesc: test experiment for testing program delay, variable changed and method return.
+  example: test delay --delayDuration 5 --breakLine tcp_server.cpp:39 --fileLocateAndName /home/admin/socketServer/main --forkMode child --processName main --delayDuration 5 --initParams 9527 --libLoad /home/lib
   actions:
   - action: delay
     aliases: []

@@ -18,12 +18,12 @@ BUILD_TARGET_CACHE=$(BUILD_TARGET)/cache
 # yaml file name
 CPLUS_YAML_FILE_NAME=chaosblade-test-spec.yaml
 # agent file name
-CPLUS_AGENT_FILE_NAME=chaosblade-exec-cplus.jar
 
 build: pre_build build_cplus
-	cp $(TARGET_PATH)/$(CPLUS_AGENT_FILE_NAME) $(BUILD_TARGET_LIB)
-	cp -R $(TARGET_PATH)/classes/script $(BUILD_TARGET_LIB)
-	cp $(TARGET_PATH)/classes/$(CPLUS_YAML_FILE_NAME) $(BUILD_TARGET_BIN)
+	#cp $(TARGET_PATH)/$(CPLUS_AGENT_FILE_NAME) $(BUILD_TARGET_LIB)
+	#cp -R $(TARGET_PATH)/classes/script $(BUILD_TARGET_LIB)
+	cp src/$(CPLUS_YAML_FILE_NAME) $(BUILD_TARGET_BIN)
+	
 	chmod -R 755 $(BUILD_TARGET_LIB)
 
 pre_build:
