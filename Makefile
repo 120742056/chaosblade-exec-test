@@ -16,7 +16,7 @@ BUILD_TARGET_LIB=$(BUILD_TARGET_PKG_DIR)/lib/cplus
 # cache downloaded file
 BUILD_TARGET_CACHE=$(BUILD_TARGET)/cache
 # yaml file name
-CPLUS_YAML_FILE_NAME=chaosblade-cplus-spec.yaml
+CPLUS_YAML_FILE_NAME=chaosblade-test-spec.yaml
 # agent file name
 CPLUS_AGENT_FILE_NAME=chaosblade-exec-cplus.jar
 
