@@ -128,5 +128,5 @@ items:
       noArgs: false
       required: true
     required: true
-    type: cplus
+    type: test
 
