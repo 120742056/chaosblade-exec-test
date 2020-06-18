@@ -10,13 +10,13 @@ items:
     aliases: []
     flags:
     - desc: show something
-      name: show
+      name: info
       noArgs: false
       required: true
     longDesc: show ...
     matchers:
     - desc: show info
-      name: info
+      name: match
       noArgs: false
       required: true
     shortDesc: information
