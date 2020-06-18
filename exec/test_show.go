@@ -20,13 +20,12 @@ import (
 	"context"
 	"fmt"
 	"path"
-	"strconv"
 
 	"github.com/chaosblade-io/chaosblade-spec-go/spec"
 	"github.com/chaosblade-io/chaosblade-spec-go/util"
 )
 
-type ShowActionSpec() struct {
+type ShowActionSpec struct {
 	spec.BaseExpActionCommandSpec
 }
 
@@ -81,11 +80,15 @@ func (fae *ShowActionExecutor) Exec(uid string, ctx context.Context, model *spec
 	if fae.channel == nil {
 		return spec.ReturnFail(spec.Code[spec.ServerError], "channel is nil")
 	}
-	directory := "/"
 	info := model.ActionFlags["info"]
 	if info != "" {
 		return fae.start(info, ctx)
 	}
+	if _, ok := spec.IsDestroy(ctx); ok {
+                return fae.stop(ctx)
+        } else {
+                return fae.start(info, ctx)
+        }	
 }
 
 func (fae *ShowActionExecutor) start(info string, ctx context.Context) *spec.Response {
@@ -95,7 +98,7 @@ func (fae *ShowActionExecutor) start(info string, ctx context.Context) *spec.Res
 
 func (fae *ShowActionExecutor) stop(ctx context.Context) *spec.Response {
 	return fae.channel.Run(ctx, path.Join(fae.channel.GetScriptPath(), testshowBin),
-		fmt.Sprintf("--stop --debug=%t", directory, util.Debug))
+		fmt.Sprintf("--stop --debug=%t", util.Debug))
 }
 
 func (fae *ShowActionExecutor) SetChannel(channel spec.Channel) {
