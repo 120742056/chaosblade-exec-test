@@ -23,7 +23,7 @@ import (
 	"github.com/chaosblade-io/chaosblade-spec-go/spec"
 	"github.com/chaosblade-io/chaosblade-spec-go/util"
 
-	"github.com/chaosblade-io/chaosblade-exec-test/exec"
+	"github.com/chaosblade-io/chaosblade-exec-os/exec"
 )
 
 // main creates the yaml file of the experiments in the project
@@ -40,7 +40,12 @@ func main() {
 // getModels returns experiment models in the project
 func getModels() *spec.Models {
 	modelCommandSpecs := []spec.ExpModelCommandSpec{
-		exec.NewTestCommandModelSpec(),
+		exec.NewCpuCommandModelSpec(),
+		exec.NewMemCommandModelSpec(),
+		exec.NewProcessCommandModelSpec(),
+		exec.NewNetworkCommandSpec(),
+		exec.NewDiskCommandSpec(),
+		exec.NewScriptCommandModelSpec(),
 	}
 	specModels := make([]*spec.Models, 0)
 	for _, modeSpec := range modelCommandSpecs {

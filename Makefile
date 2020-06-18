@@ -20,8 +20,8 @@ BUILD_IMAGE_PATH=build/image/blade
 # cache downloaded file
 BUILD_TARGET_CACHE=$(BUILD_TARGET)/cache
 
-TEST_YAML_FILE_NAME=chaosblade-test-spec.yaml
-TEST_YAML_FILE_PATH=$(BUILD_TARGET_BIN)/$(OS_YAML_FILE_NAME)
+OS_YAML_FILE_NAME=chaosblade-os-spec-$(BLADE_VERSION).yaml
+OS_YAML_FILE_PATH=$(BUILD_TARGET_BIN)/$(OS_YAML_FILE_NAME)
 
 ifeq ($(GOOS), linux)
 	GO_FLAGS=-ldflags="-linkmode external -extldflags -static"
@@ -38,11 +38,15 @@ pre_build:
 	mkdir -p $(BUILD_TARGET_BIN) $(BUILD_TARGET_LIB)
 
 build_yaml: build/spec.go
-	$(GO) run $< $(TEST_YAML_FILE_PATH)
+	$(GO) run $< $(OS_YAML_FILE_PATH)
 
-build_osbin: build_burncpu build_burnmem build_burnio build_killprocess build_stopprocess build_changedns build_tcnetwork build_dropnetwork build_filldisk build_occupynetwork
+build_osbin: build_testshow build_burncpu build_burnmem build_burnio build_killprocess build_stopprocess build_changedns build_tcnetwork build_dropnetwork build_filldisk build_occupynetwork
 
 build_osbin_darwin: build_burncpu build_killprocess build_stopprocess build_changedns build_occupynetwork
+
+# build burn-cpu chaos tools
+build_testshow: exec/bin/testshow/testshow.go
+	$(GO) build $(GO_FLAGS) -o $(BUILD_TARGET_BIN)/chaos_testshow $<
 
 # build burn-cpu chaos tools
 build_burncpu: exec/bin/burncpu/burncpu.go
