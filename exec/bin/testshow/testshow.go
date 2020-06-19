@@ -17,22 +17,8 @@
 package main
 
 import (
-	"context"
 	"flag"
 	"fmt"
-	"os"
-	"os/signal"
-	"path"
-	"runtime"
-	"strconv"
-	"strings"
-	"syscall"
-	"time"
-
-	"github.com/chaosblade-io/chaosblade-spec-go/channel"
-	"github.com/chaosblade-io/chaosblade-spec-go/util"
-	"github.com/shirou/gopsutil/cpu"
-	"github.com/shirou/gopsutil/process"
 
 	"github.com/120742056/chaosblade-exec-test/exec/bin"
 )
@@ -43,14 +29,14 @@ var (
 )
 
 func main() {
-	flag.BoolVar(&burnCpuStart, "start", false, "start burn cpu")
-	flag.BoolVar(&burnCpuStop, "stop", false, "stop burn cpu")
+	flag.BoolVar(&testStart, "start", false, "start burn cpu")
+	flag.BoolVar(&testStop, "stop", false, "stop burn cpu")
 	flag.StringVar(&info, "info", "", "the info to show")
 	bin.ParseFlagAndInitLog()
 
-	if burnCpuStart {
+	if testStart {
 		startTestShow()
-	} else if burnCpuStop {
+	} else if testStop {
 		if success, errs := stopTestShowFunc(); !success {
 			bin.PrintErrAndExit(errs)
 		}
@@ -60,17 +46,16 @@ func main() {
 }
 
 func startTestShow() {
-	ctx := context.Background()
 	if info != "" {
-		fmt.println(info)
+		fmt.Println(info)
 	} else {
-		fmt.println("no info")
+		fmt.Println("no info")
 	}
 }
 
 
 // stopBurnCpu
-func stopBurnCpu() (success bool, errs string) {
-	fmt.println("stop testshow")
+func stopTestShowFunc() (success bool, errs string) {
+	fmt.Println("stop testshow")
 	return true, errs
 }
