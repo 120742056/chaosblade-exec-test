@@ -51,7 +51,7 @@ func NewShowActionSpec() spec.ExpActionCommandSpec {
 }
 
 func (*ShowActionSpec) Name() string {
-	return "fill"
+	return "show"
 }
 
 func (*ShowActionSpec) Aliases() []string {

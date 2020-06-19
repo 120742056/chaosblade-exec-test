@@ -1,3 +1,4 @@
+github.com/120742056/chaosblade-exec-test v0.0.1/go.mod h1:DdPtPMGvLOQfM6Hjab/72adQWEfzFw9sR0HDvyqTuYg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
 github.com/chaosblade-io/chaosblade-exec-os v0.6.0 h1:Qd+9/g9nXtQDFReK4jCf+TtKvc/ftxvLg0UOXvluGUM=
