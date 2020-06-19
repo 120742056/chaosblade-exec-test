@@ -6,7 +6,7 @@ items:
   longDesc: Test experiment contains show info
   example: 'blade create test show --info ''hello world'' '
   actions:
-  - action: fill
+  - action: show
     shortDesc: Show the specified directory path
     longDesc: Show the specified directory path. If the path is not directory or does
       not exist, an error message will be returned.

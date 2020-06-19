@@ -19,7 +19,7 @@ package model
 import (
 	"github.com/chaosblade-io/chaosblade-spec-go/spec"
 
-	"github.com/chaosblade-io/chaosblade-exec-os/exec"
+	"github.com/120742056/chaosblade-exec-test/exec"
 )
 
 // Support for other project about chaosblade
@@ -44,6 +44,7 @@ func GetAllExpModels() []spec.ExpModelCommandSpec {
 		exec.NewProcessCommandModelSpec(),
 		exec.NewNetworkCommandSpec(),
 		exec.NewDiskCommandSpec(),
+		exec.NewTestCommandSpec(),
 		exec.NewScriptCommandModelSpec(),
 	}
 }
