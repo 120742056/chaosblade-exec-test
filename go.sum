@@ -1,3 +1,5 @@
+github.com/120742056/chaosblade-exec-test/exec v0.0.0-20200619080736-e4cdc8cd43ce h1:XHmYnmfN79y8lpJsamO07suQ5zMBtQl2n6YleNQuXF4=
+github.com/120742056/chaosblade-exec-test/exec v0.0.0-20200619080736-e4cdc8cd43ce/go.mod h1:ur20KDifpxZZ4SS/HrT2Aj1OquTjyfCSnY6ysdNbrug=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
 github.com/chaosblade-io/chaosblade-spec-go v0.6.0 h1:PtNvXQ1NTtKS4lQb1y07ZmBJKdbWCM7G4YeQ7h7pTOw=

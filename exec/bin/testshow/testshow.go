@@ -19,7 +19,7 @@ package main
 import (
 	"flag"
 	"fmt"
-
+	"io/ioutil" //io 工具包
 	"github.com/120742056/chaosblade-exec-test/exec/bin"
 )
 
@@ -45,11 +45,25 @@ func main() {
 	}
 }
 
+func check(e error) {
+        if e != nil {
+                panic(e)
+        }
+}
+
+func wfile(s string) {
+	d1 := []byte(s)
+	err2 := ioutil.WriteFile("./output.txt", d1, 0666) //写入文件(字节数组)
+	check(err2)
+}
+
 func startTestShow() {
 	if info != "" {
 		fmt.Println(info)
+		wfile(info)
 	} else {
 		fmt.Println("no info")
+		wfile("no info")
 	}
 }
 
@@ -57,5 +71,6 @@ func startTestShow() {
 // stopBurnCpu
 func stopTestShowFunc() (success bool, errs string) {
 	fmt.Println("stop testshow")
+	wfile("stop testshow")
 	return true, errs
 }
