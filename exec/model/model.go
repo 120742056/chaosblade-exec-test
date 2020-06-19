@@ -39,13 +39,7 @@ func GetAllOsExecutors() map[string]spec.Executor {
 // Support for other project about chaosblade
 func GetAllExpModels() []spec.ExpModelCommandSpec {
 	return []spec.ExpModelCommandSpec{
-		exec.NewCpuCommandModelSpec(),
-		exec.NewMemCommandModelSpec(),
-		exec.NewProcessCommandModelSpec(),
-		exec.NewNetworkCommandSpec(),
-		exec.NewDiskCommandSpec(),
 		exec.NewTestCommandSpec(),
-		exec.NewScriptCommandModelSpec(),
 	}
 }
 

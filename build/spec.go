@@ -41,12 +41,6 @@ func main() {
 func getModels() *spec.Models {
 	modelCommandSpecs := []spec.ExpModelCommandSpec{
 		exec.NewTestCommandSpec(),
-		exec.NewCpuCommandModelSpec(),
-		exec.NewMemCommandModelSpec(),
-		exec.NewProcessCommandModelSpec(),
-		exec.NewNetworkCommandSpec(),
-		exec.NewDiskCommandSpec(),
-		exec.NewScriptCommandModelSpec(),
 	}
 	specModels := make([]*spec.Models, 0)
 	for _, modeSpec := range modelCommandSpecs {

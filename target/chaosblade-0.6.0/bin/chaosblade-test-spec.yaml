@@ -1,0 +1,30 @@
+version: v1
+kind: plugin
+items:
+- target: test
+  shortDesc: Test experiment
+  longDesc: Test experiment contains show info
+  example: 'blade create test show --info ''hello world'' '
+  actions:
+  - action: show
+    shortDesc: Show the specified directory path
+    longDesc: Show the specified directory path. If the path is not directory or does
+      not exist, an error message will be returned.
+    matchers:
+    - name: match
+      desc: test match
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    flags:
+    - name: info
+      desc: show info
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: timeout
+      desc: set timeout for experiment
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+  scope: host

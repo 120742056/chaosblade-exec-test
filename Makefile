@@ -20,7 +20,7 @@ BUILD_IMAGE_PATH=build/image/blade
 # cache downloaded file
 BUILD_TARGET_CACHE=$(BUILD_TARGET)/cache
 
-OS_YAML_FILE_NAME=chaosblade-os-spec-$(BLADE_VERSION).yaml
+OS_YAML_FILE_NAME=chaosblade-test-spec.yaml
 OS_YAML_FILE_PATH=$(BUILD_TARGET_BIN)/$(OS_YAML_FILE_NAME)
 
 ifeq ($(GOOS), linux)
@@ -31,7 +31,7 @@ endif
 # build os
 build: pre_build build_yaml build_osbin
 
-build_darwin: pre_build build_yaml build_osbin_darwin
+build_osbin: build_testshow
 
 pre_build:
 	rm -rf $(BUILD_TARGET_PKG_DIR) $(BUILD_TARGET_PKG_FILE_PATH)
@@ -40,10 +40,8 @@ pre_build:
 build_yaml: build/spec.go
 	$(GO) run $< $(OS_YAML_FILE_PATH)
 
-build_osbin: build_testshow build_burncpu build_burnmem build_burnio build_killprocess build_stopprocess build_changedns build_tcnetwork build_dropnetwork build_filldisk build_occupynetwork
 
-build_osbin_darwin: build_burncpu build_killprocess build_stopprocess build_changedns build_occupynetwork
-
+build_osbin_darwin: build_testshow
 # build burn-cpu chaos tools
 build_testshow: exec/bin/testshow/testshow.go
 	$(GO) build $(GO_FLAGS) -o $(BUILD_TARGET_BIN)/chaos_testshow $<
