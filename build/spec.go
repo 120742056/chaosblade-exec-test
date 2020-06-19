@@ -40,7 +40,7 @@ func main() {
 // getModels returns experiment models in the project
 func getModels() *spec.Models {
 	modelCommandSpecs := []spec.ExpModelCommandSpec{
-		exec.NewTestCommandModelSpec(),
+		exec.NewTestCommandSpec(),
 		exec.NewCpuCommandModelSpec(),
 		exec.NewMemCommandModelSpec(),
 		exec.NewProcessCommandModelSpec(),
