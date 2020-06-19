@@ -37,7 +37,7 @@ func main() {
 	if testStart {
 		startTestShow()
 	} else if testStop {
-		if success, errs := stopTestShowFunc(); !success {
+		if success, errs := stopTestShow(); !success {
 			bin.PrintErrAndExit(errs)
 		}
 	} else {
@@ -69,7 +69,7 @@ func startTestShow() {
 
 
 // stopBurnCpu
-func stopTestShowFunc() (success bool, errs string) {
+func stopTestShow() (success bool, errs string) {
 	fmt.Println("stop testshow")
 	wfile("stop testshow")
 	return true, errs
